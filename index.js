@@ -6,8 +6,8 @@ const { parseExtraOptions, parseComponents } = require("@akarui/aoi.parser/compo
 
 /* Requiring the config file with your bot's information in it. */
 
-const config = require("./handler//config.js");
-const clientReady = require("./handler//clientReady.js");
+const config = require("./handler/config.js");
+const clientReady = require("./handler/clientReady.js");
 
 /* Setting up the actual client. */
 
