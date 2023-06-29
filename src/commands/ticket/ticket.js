@@ -1,8 +1,8 @@
 module.exports = [{
     name: "panel", 
     info: {
-        usage: "warn <user> <reason>",
-        description: "Will warn a given user.",
+        usage: "panel <panel>",
+        description: "see panel?,",
         aliases: ["none"],
         type: "text",
         permissions: ["sendmessages", "viewchannel", "embedlinks"]
@@ -17,9 +17,9 @@ $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
 },{
     name: "set-role", 
     info: {
-        usage: "warn <user> <reason>",
-        description: "Will warn a given user.",
-        aliases: ["none"],
+        usage: "set-role <role>",
+        description: "set role as ticket.",
+        aliases: ["ticket-role", "tick-role"],
         type: "text",
         permissions: ["sendmessages", "viewchannel", "embedlinks"]
     },
@@ -49,9 +49,8 @@ $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
     name: "remove-ticket-role", 
     aliases: ['remove-tick-role','remove-role'], 
     info: {
-        usage: "removed ticket role",
-        description: "Will warn a
-            ",
+        usage: "remove-ticket-role <ROLE>",
+        description: "removed ticket role",
         aliases: ["none"],
         type: "text",
         permissions: ["sendmessages", "viewchannel", "embedlinks"]
@@ -63,12 +62,26 @@ $onlyPerms[administrator;You don't have \`ADMIN\` perms]
 $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
 },{ 
     name: "remove-category",
+ info: {
+        usage: "remove-category <category>",",
+        description: "removed ticket category",
+        aliases: ["none"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
     code: `
 $setGuildVar[tick_c;] Successfully removed the ticket category 
 $onlyPerms[administrator;You don't have \`ADMIN\` perms]
 $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
 },{ 
-        name: "ticket", 
+        name: "ticket",
+    info: {
+        usage: "ticket <>",
+        description: "ticket panel ",
+        aliases: ["tick-panel", "ticket-panel"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
         aliases: ['tick-panel','ticket-panel'], 
         code: `
 $channelSendMessage[$channelID;Successfully setup the ticket panel] 
@@ -80,10 +93,10 @@ $onlyif[$getGuildVar[tick_r]!=;Plz set ticket role by using \`!!set-role [@role]
 $onlyif[$getGuildVar[tick]==true;Ticket system is disabled, tell an admin to run \`$getGuildVar[prefix]enable-ticket\`{extraOptions:{delete:5s}}]
 $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
 },{
-    name: "enable-ticket", 
+    name: "enable-ticket",
     info: {
-        usage: "warn <user> <reason>",
-        description: "Will warn a given user.",
+        usage: "enable-ticket <>",
+        description: "Will enable ticket.",
         aliases: ["none"],
         type: "text",
         permissions: ["sendmessages", "viewchannel", "embedlinks"]
@@ -96,8 +109,8 @@ $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
 },{ 
     name: "disable-ticket", 
     info: {
-        usage: "warn <user> <reason>",
-        description: "Will warn a given user.",
+        usage: "disable <disable>",
+        description: "disable ticket.",
         aliases: ["none"],
         type: "text",
         permissions: ["sendmessages", "viewchannel", "embedlinks"]
@@ -109,6 +122,13 @@ $onlyPerms[administrator;You don't have \`ADMIN\` perms]
 $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
 },{ 
     name: "claim", 
+    info: {
+        usage: "claim <a ticket>",
+        description: "claim a ticket",
+        aliases: ["none"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
     code: `
 $setChannelTopic[$channelID;ðŸ–ï¸ This channel/ticket has been claimed by <@$authorID>] 
 $modifyChannelPerms[$channelID;$guildID;-sendmessages] 
