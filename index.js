@@ -3,12 +3,12 @@ const { AoiVoice, PluginName, Cacher, Filter } = require("@akarui/aoi.music");
 const { Util } = require("aoi.js");
 const { parse, createAst } = require("@akarui/aoi.parser");
 const { parseExtraOptions, parseComponents } = require("@akarui/aoi.parser/components");
-
+const fs = require('fs');
 /* Requiring the config file with your bot's information in it. */
 
 const config = require("./handler/config.js");
 const clientReady = require("./handler/clientReady.js");
-const crash = require("./handler/crash.js");
+
 /* Setting up the actual client. */
 
 const client = new AoiClient({
@@ -27,7 +27,11 @@ const client = new AoiClient({
         },
     },
 });
-
+/* module event */
+const files = fs.readdirSync('./events').filter(file => file.endsWith('.js'))
+files.forEach( x => {
+require(`./handler/module/${x}`)(bot)
+});
 /* @akarui/aoi.music setup */
 
 const voiceManager = new AoiVoice(client, {
