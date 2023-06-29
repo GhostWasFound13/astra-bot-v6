@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "winston": "^3.8.1",
+     "moment": "^2.29.4",
     "@akarui/aoi.music": "^2.3.0",
     "@akarui/structures": "github:AkaruiDevelopment/structures#v2",
     "aoi.js": "^6.2.6",
