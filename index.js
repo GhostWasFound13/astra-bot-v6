@@ -8,7 +8,7 @@ const { parseExtraOptions, parseComponents } = require("@akarui/aoi.parser/compo
 
 const config = require("./handler/config.js");
 const clientReady = require("./handler/clientReady.js");
-
+const crash = require("./handler/crash.js");
 /* Setting up the actual client. */
 
 const client = new AoiClient({
