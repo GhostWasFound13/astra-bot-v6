@@ -45,8 +45,8 @@ module.exports = async (client, voice) => {
       },
     });
     client.once('ready', () => {
-        console.warn("\n" + "\x1B[90m[CLIENT]\x1B[0m Loaded " + client.cmd.default.size + (client.cmd.default.size >= 2 ? " commands" : " command" + "."));
-        console.log("\x1B[90m[CLIENT]\x1B[0m Successfully initialized on \x1B[32m" + client.user.username + "\x1B[0m");
+        logger.warn("\n" + "\x1B[90m[CLIENT]\x1B[0m Loaded " + client.cmd.default.size + (client.cmd.default.size >= 2 ? " commands" : " command" + "."));
+        logger.info("\x1B[90m[CLIENT]\x1B[0m Successfully initialized on \x1B[32m" + client.user.username + "\x1B[0m");
         if (config.disableInvite === false) {
        logger.info(`\x1B[90m[INFO]\x1B[0m Invite your bot with this link: https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=0&scope=bot%20applications.commands`);
         }
@@ -58,7 +58,7 @@ module.exports = async (client, voice) => {
           }
         } catch (err) {
           setTimeout(() => {
-            console.error("\x1B[90m[ERR]\x1B[0m \x1B[31mFailed to check if you authenticated with the google device link.\x1B[0m");
+            logger.error("\x1B[90m[ERR]\x1B[0m \x1B[31mFailed to check if you authenticated with the google device link.\x1B[0m");
           }, 2500);
         }        
       });
@@ -82,7 +82,7 @@ module.exports = async (client, voice) => {
       Object.values(client.customFunctions).forEach(x => client.functionManager.createFunction(...x.allValues()));
 } catch (err) {
     logger.warn("\x1B[90m[ERR]\x1B[0m \x1B[31mFailed to load commands and/or events, please try again.\x1B[0m");
-    console.error(err)
+    logger.error(err)
 }
 await require(config.variables)(client);
 module.exports = client;
