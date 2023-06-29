@@ -81,6 +81,13 @@ $onlyif[$getGuildVar[tick]==true;Ticket system is disabled, tell an admin to run
 $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
 },{
     name: "enable-ticket", 
+    info: {
+        usage: "warn <user> <reason>",
+        description: "Will warn a given user.",
+        aliases: ["none"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
     code: `
 $setGuildVar[tick;true] 
 Successfully enabled ticket system 
@@ -88,6 +95,13 @@ $onlyPerms[administrator;You don't have \`ADMIN\` perms]
 $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
 },{ 
     name: "disable-ticket", 
+    info: {
+        usage: "warn <user> <reason>",
+        description: "Will warn a given user.",
+        aliases: ["none"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
     code: `
 $setGuildVar[tick;false] 
 Successfully disabled ticket system 
@@ -109,6 +123,13 @@ $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
 },{
     name: "transcript-channel",
     aliases: ["trans-ch", "tran-ch"],
+    info: {
+        usage: "transcript-channel <channel>",
+        description: "setup transcript channel.",
+        aliases: ["trans-ch"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
     code: `
 $sendMessage[Transcript Channel has been set to <#$getGuildVar[transcript_channel]>
 $setGuildVar[transcript_channel;$mentionedChannels[1;true]]
@@ -116,6 +137,13 @@ $onlyPerms[administrator;You don't have \`ADMIN\` perms]
 $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
 },{
     name: "transcript",
+   info: {
+        usage: "transcript <>",
+        description: "transscript idk.",
+        aliases: ["none"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    }, 
     code: `
 $djsEval[(async () => {
   const discordTranscripts = require("discord-html-transcripts");
@@ -285,6 +313,13 @@ $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
 }, {
     name: "set-ticket-msg",
     aliases: "set-tick-msg",
+    info: {
+        usage: "set-ticket-msg <msg>",
+        description: "Will set ticket msg,",
+        aliases: ["set-tick-msg"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
     code: `
 $sendMessage[Successfully set Ticket Panel Message as:\n$getGuildVar[tick_describe]]
 $setGuildVar[tick_describe;$message]
@@ -295,6 +330,13 @@ $onlyPerms[administrator;You don't have \`ADMIN\` perms]
 }, {
     name: "set-ticket-title",
     aliases: "set-tick-title",
+    info: {
+        usage: "set-ticket-title <ticket title>",
+        description: "Will setup ticket title",
+        aliases: ["set-tick-title"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
     code:`
 $sendMessage[Successfully set Ticket Title as:\n$getGuildVar[ticket_title]]
 
@@ -305,6 +347,13 @@ $onlyIf[$message!=;Enter a valid Message]
 $onlyPerms[administrator;You don't have \`ADMIN\` perms]`
 }, {
     name: "set-tick-button",
+    info: {
+        usage: "set-tick-button",
+        description: "setup button?.",
+        aliases: ["none"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
     code: `
 $sendMessage[Successfully set Ticket Panel Button Name as:\n$getGuildVar[button_name]]
 $setGuildVar[button_name;$message]
@@ -313,6 +362,13 @@ $onlyIf[$message!=;Enter a valid Message]
 $onlyPerms[administrator;You don't have \`ADMIN\` perms]`
 }, {
     name: "set-panel-title",
+    info: {
+        usage: "set-panel-title <title>",
+        description: "set panel title for ticket duh.",
+        aliases: ["none"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
     code: `
 $sendMessage[Successfully set Ticket Panel Title as:\n$getGuildVar[panel_title]]
 $setGuildVar[panel_title;$message]
@@ -322,6 +378,13 @@ $onlyPerms[administrator;You don't have \`ADMIN\` perms]`
 }, {
     name: "set-panel-description",
     aliases: "set-panel-desc",
+   info: {
+        usage: "set-panel-description <descriptions>",
+        description: "setl panel descriptioms.",
+        aliases: ["set-panel-desc"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    }, 
     code: `
 $sendMessage[Successfully set Ticket Panel Description as:\n$getGuildVar[panel_desc]]
 $setGuildVar[panel_desc;$message]
@@ -331,6 +394,13 @@ $onlyPerms[administrator;You don't have \`ADMIN\` perms]`
 }, {
     name: "ticket-channel-name",
     aliases: "tick-ch-name",
+    info: {
+        usage: "ticket-channel-name <channel>",
+        description: "set ticket channel",
+        aliases: ["tick-ch-name"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
     code: `
 $sendMessage[Successfully set Ticket Channel Name as as:\n\`$getGuildVar[ch_name]-$userTag\`]
 $setGuildVar[ch_name;$message]
@@ -340,6 +410,13 @@ $onlyPerms[administrator;You don't have \`ADMIN\` perms]`
 }, {
     name: "auto-transcript",
     aliases: "auto-tran",
+    info: {
+        usage: "auto-transcript",
+        description: "auto-transcript",
+        aliases: ["auto-tran"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
     $if: "old",
     code: `
 $if[$getGuildVar[auto_tran]==false]
