@@ -1,5 +1,12 @@
 module.exports = [{
     name: "panel", 
+    info: {
+        usage: "warn <user> <reason>",
+        description: "Will warn a given user.",
+        aliases: ["none"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
     code: `
 $title[1;Support Buttons] $description[1;Here is the ticket panel for support Team] $color[1;Blue] 
 $addButton[1;Transcript;primary;transcript;false]
@@ -9,6 +16,13 @@ $onlyif[$advancedTextSplit[$getChannelVar[tick];-;1]==true;{newEmbed:{title:Erro
 $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
 },{
     name: "set-role", 
+    info: {
+        usage: "warn <user> <reason>",
+        description: "Will warn a given user.",
+        aliases: ["none"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
     aliases: ['ticket-role','tick-role'], 
     code: `
 $setGuildVar[tick_r;$findRole[$message[1]]] I set $roleName[$findRole[$message[1]]] as a ticket role 
@@ -18,6 +32,13 @@ $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
 },{ 
     name: "set-category", 
     aliases: ['ticket-category','tick-category'], 
+   info: {
+        usage: "set-category (category)?,",
+        description: "create ticket category",
+        aliases: ["none"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    }, 
     code: `
 $setGuildVar[tick_c;$findChannel[$message[1]]] I set <#$findChannel[$message[1]]> as a ticket category 
 $onlyif[$channelType[$findChannel[$message[1]]]==category;Please sepcify a category channel] 
@@ -27,7 +48,16 @@ $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
 },{
     name: "remove-ticket-role", 
     aliases: ['remove-tick-role','remove-role'], 
+    info: {
+        usage: "removed ticket role",
+        description: "Will warn a
+            ",
+        aliases: ["none"],
+        type: "text",
+        permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
     code: `
+    
 $setGuildVar[tick_r;] Successfully removed the ticket role 
 $onlyPerms[administrator;You don't have \`ADMIN\` perms]
 $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
