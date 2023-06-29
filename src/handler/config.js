@@ -15,9 +15,9 @@ module.exports = {
     "prefix": "!", // The prefix your bot will respond to, can be multiple for example ["!", "?"], so the bot would respond to ?ping and !ping
     "intents": ["Guilds", "GuildMessages", "MessageContent", "GuildVoiceStates"], // Array of intents used for your bot, list can be found here: https://aoi.js.org/docs/guides/permissionsandintents
     "events": ["onMessage", "onInteractionCreate"], // Array of events used for your bot, list can be found here: https://aoi.js.org/docs/guides/events
-    "commands": "././handler/main", // Location of your commands directory.
-    "voiceCommands": "././handler/voice",
-    "customCommands": "./handler/config/customFunctions", // Location of your custom commands directory.
+    "commands": "../../commands", // Location of your commands directory.
+    "voiceCommands": "./handler/voice",
+    "customCommands": "./handler//customFunctions", // Location of your custom commands directory.
     "variables": "./variables.js", // Location of your variables file, note that it's trying to search the file from the clientReady.js file.
 
     /* - @akarui/aoi.music setup - */
