@@ -8,7 +8,9 @@ const fs = require('fs');
 
 const config = require("./handler/config.js");
 const clientReady = require("./handler/clientReady.js");
-
+const dash = require("./src/dashboard/index.js");
+const { Panel } = require("@akarui/aoi.panel");
+const { Dash } = require("./src/dashboard/dash.js");
 /* Setting up the actual client. */
 
 const client = new AoiClient({
@@ -27,6 +29,9 @@ const client = new AoiClient({
         },
     },
 });
+/* dashboard cient */
+config.panel.bot = bot;
+config.dash.bot = bot;
 /* module event */
 const files = fs.readdirSync('./events').filter(file => file.endsWith('.js'))
 files.forEach( x => {
@@ -56,7 +61,28 @@ Util.parsers.OptionsParser = ( data ) => {
 Util.parsers.ComponentParser = ( data ) => {
      return createAst( data ).children.map( parseComponents );
 };
+/* dash board functiojs */
+var dashClass = new Dash(config.dash)
+dash.loadDash(bot, panel, dashClass)
 
+async function ImportantFunction(){
+  let servers = bot.guilds.cache.map(z => z)
+  for (let i = 0; i < servers.length; i++) {
+    var orig = await bot.db.get("main","prefix",servers[i].id)
+    if(!orig||!orig.value){
+      orig = {}
+      orig.value=config.bot.prefix[0]
+    }
+    await bot.db.set("main","prefix",servers[i].id,orig.value)
+  }
+}
+
+setInterval(ImportantFunction,1000);
+/* INITIALIZING PANEL */
+
+const panel = new Panel(config.panel)
+panel.loadPanel()
+panel.onError()
 /* Needed for events and other features of @akarui/aoi.music to work. */ 
 
 voiceManager.addPlugin(PluginName.Cacher, new Cacher("memory"));
