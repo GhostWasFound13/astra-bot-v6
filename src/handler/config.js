@@ -12,12 +12,12 @@ module.exports = {
       - aoi.js setup (complicated) -
 */
     "token": "", // Your super secret client token, when using replit use token: process.env.token and create a secret with your token in it instead for safety purposes.
-    "prefix": "!", // The prefix your bot will respond to, can be multiple for example ["!", "?"], so the bot would respond to ?ping and !ping
+    "prefix": "a!", // The prefix your bot will respond to, can be multiple for example ["!", "?"], so the bot would respond to ?ping and !ping
     "intents": ["Guilds", "GuildMessages", "MessageContent", "GuildVoiceStates"], // Array of intents used for your bot, list can be found here: https://aoi.js.org/docs/guides/permissionsandintents
     "events": ["onMessage", "onInteractionCreate"], // Array of events used for your bot, list can be found here: https://aoi.js.org/docs/guides/events
     "commands": "../../commands", // Location of your commands directory.
     "voiceCommands": "./handler/voice",
-    "customCommands": "./handler//customFunctions", // Location of your custom commands directory.
+    "customCommands": "./handler/customFunctions", // Location of your custom commands directory.
     "variables": "./variables.js", // Location of your variables file, note that it's trying to search the file from the clientReady.js file.
 
     /* - @akarui/aoi.music setup - */
