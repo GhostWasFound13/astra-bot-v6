@@ -1,6 +1,4 @@
-const { AoiClient } = require("aoi.js");
 const { AoiVoice, PluginName, Cacher, Filter } = require("@akarui/aoi.music");
-const { Util } = require("aoi.js");
 const { parse, createAst } = require("@akarui/aoi.parser");
 const { parseExtraOptions, parseComponents } = require("@akarui/aoi.parser/components");
 const fs = require('fs');
@@ -12,23 +10,28 @@ const dash = require("./src/dashboard/index.js");
 const { Panel } = require("@akarui/aoi.panel");
 const { Dash } = require("./src/dashboard/dash.js");
 /* Setting up the actual client. */
+// imports
+const { AoiClient, defaultCacheConfig } = require("aoi.js");
+const { Intents } = require("zeneth");
 
-const client = new AoiClient({
+// create a new client
+const bot = new AoiClient({
     token: config.token,
     prefix: config.prefix,
     events: config.events,
     intents: config.intents,
-    aoiLogs: false,
-    database: {
-        type: "aoi.db",
-        db: require("aoi.db"),
-        tables: ["main"],
-        path: "./database/",
-        extraOptions: {
-            dbType: "KeyValue"
-        },
-    },
+   //) intents: Intents.Guilds | Intents.GuildMessages | Intents.MessageContent,
+ //   events: ["MessageCreate", "Ready"],
+    caches: defaultCacheConfig(),
 });
+
+// create a command
+bot.command({
+    name: "ping",
+    code: `Pong! $pingms`,
+});
+
+    
 /* dashboard cient */
 config.panel.bot = bot;
 config.dash.bot = bot;
