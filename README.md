@@ -4,11 +4,17 @@ astra bot is using aoi.js v6 for aoi.js v7 will be overwrite the code soon the b
 # feature
 
 • dashboard system
+
 • logger system 
+
 • anti crash system
+
 • music system (progress)
-• custom functions
+
+• custom functions and music functions
+
 • command handler system
+
 • other coming soon
 # setup 
 ```
