@@ -14,7 +14,7 @@
      "moment": "^2.29.4",
     "@akarui/aoi.music": "^2.3.0",
     "@akarui/structures": "github:AkaruiDevelopment/structures#v2",
-    "aoi.js": "^6.2.6",
+    "aoi.js": "^6.3.0",
     "@akarui/aoi.parser": "^1.2.6",
     "express": "^4.18.2",
     "ffmpeg-static": "^5.1.0",
