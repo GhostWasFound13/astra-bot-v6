@@ -8,6 +8,8 @@ module.exports = async (client) => {
         prefix: config.prefix,
         /* API Key */
         apiKey: config.apiKey,
+        /* music System */
+        leave_music: "left the voice channel.",
         /* Moderation System */
         user_warnings: {},
         user_warningscount: 0,
