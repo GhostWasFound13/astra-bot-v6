@@ -1,16 +1,17 @@
+const logger = require("../plugin/logger.js")
 module.exports = (bot) => {
     process.on('unhandledRejection', (reason, p) => {
-        console.log(' [antiCrash] :: Unhandled Rejection/Catch');
+        client.logger.warn(' [antiCrash] :: Unhandled Rejection/Catch');
         console.log(reason, p);
     });
     process.on("uncaughtException", (err, origin) => {
-        console.log(' [antiCrash] :: Uncaught Exception/Catch');
+        client.logger.warn(' [antiCrash] :: Uncaught Exception/Catch');
         console.log(err, origin);
     }); process.on('uncaughtExceptionMonitor', (err, origin) => {
-        console.log(' [antiCrash] :: Uncaught Exception/Catch (MONITOR)');
+        client.logger.warn(' [antiCrash] :: Uncaught Exception/Catch (MONITOR)');
         console.log(err, origin);
     });
     process.on('multipleResolves', (type, promise, reason) => {
-        console.log(' [antiCrash] :: Multiple Resolves');
+        client.logger.warn(' [antiCrash] :: Multiple Resolves');
     });
 }
