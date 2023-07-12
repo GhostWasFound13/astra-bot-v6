@@ -27,13 +27,20 @@ Put your token in config.js
 # music command is coming soon
 
 our main go to make music command
- /play (music)
+ /play (what music you want to play)
+ 
  /skip
+ 
  /shuffle
+ 
  /filter
+ 
  /playskip
+ 
  /loop
+ 
  /songinfo
+ 
  and other music command
 
  this will be our project soon much progress soon massive stuff 
