@@ -1,4 +1,5 @@
 # custom functionst list
+$search[type;query;format?;list? = 5] for example $search[youtube;Hello;{title} by {artist} ({duration});5]
 
 $transcript[channel?;loggingChannel?]
 
@@ -10,6 +11,7 @@ $toToggleCase[This Is useless fr]
 This will result in tHIS iS uSELESS fR
 
 $randomWord[Hi:Hello:Bye:Sayonara;2]
+
 $lockThread[threadID]
 $unlockThread[threadID]
 $renameThread[threadID;newName]
