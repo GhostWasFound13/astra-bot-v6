@@ -15,3 +15,18 @@ $randomWord[Hi:Hello:Bye:Sayonara;2]
 $lockThread[threadID]
 $unlockThread[threadID]
 $renameThread[threadID;newName]
+
+
+# filename functions
+$fileNames[misc;separator (optional)]
+#Example
+
+Code:
+
+```
+$fileNames[utility; | ]
+
+Return:
+
+file1 | file2 | file3
+```
