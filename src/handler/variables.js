@@ -10,6 +10,14 @@ module.exports = async (client) => {
         apiKey: config.apiKey,
         /* music System */
         leave_music: "left the voice channel.",
+        autoplay: "false",
+      music_channelID: "null",
+      music_player: "null",
+      yes_emoji: "✅",
+      volume: "100",
+      authorbutton: "0",
+      play_pause: "none",
+      loop: "none",
         /* Moderation System */
         user_warnings: {},
         user_warningscount: 0,
