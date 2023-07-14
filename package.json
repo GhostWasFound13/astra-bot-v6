@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "main": "npm install && node -e \"process.stdout.write('\\u001b[2J\\u001b[0;0H');\" && node index.js"
+    "start": "npm install && node -e \"process.stdout.write('\\u001b[2J\\u001b[0;0H');\" && node index.js"
   },
   "keywords": [],
   "author": "",
