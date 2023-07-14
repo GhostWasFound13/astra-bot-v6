@@ -8,8 +8,8 @@ const fetch = require("node-fetch");
 
 /* Requiring the config file with your bot's information in it. */
 
-const config = require("./handler/config.js");
-const clientReady = require("./handler/clientReady.js");
+const config = require("./src/handler/config.js");
+const clientReady = require("./src/handler/clientReady.js");
 const dash = require("./src/dashboard/index.js");
 const { Panel } = require("@akarui/aoi.panel");
 const { Dash } = require("./src/dashboard/dash.js");
@@ -22,8 +22,8 @@ const client = new AoiClient({
     intents: config.intents,
     aoiLogs: false,
     database: {
-        type: "aoi.db",
-        db: require("aoi.db"),
+        type: "@akarui/aoi.db",
+        db: require("@akarui/aoi.db"),
         tables: ["main"],
         path: "./database/",
         extraOptions: {
@@ -35,7 +35,7 @@ const client = new AoiClient({
 config.panel.bot = bot;
 config.dash.bot = bot;
 /* module event */
-const files = fs.readdirSync('./events').filter(file => file.endsWith('.js'))
+const files = fs.readdirSync('./src').filter(file => file.endsWith('.js'))
 files.forEach( x => {
 require(`./handler/module/${x}`)(bot)
 });
