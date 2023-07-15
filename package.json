@@ -25,7 +25,7 @@
     "@types/node": "^18.0.6",
     "@akarui/aoi.db": "^1.0.0",
     "discord-oauth2": "^2.11.0",
-    "node-fetch": "^3.2.6",
+    "node-fetch": "^3.3.0",
     "url": "^0.11.1"
   }
 }
