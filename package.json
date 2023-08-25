@@ -22,7 +22,7 @@
     "opusscript": "^0.0.8",
     "discord-html-transcripts": "^3.1.4",
      "@akarui/aoi.panel": "github:AkaruiDevelopment/panel",
-    "@types/node": "^18.0.6",
+    "@types/node": "^20.5.6",
     "@akarui/aoi.db": "^1.0.0",
     "discord-oauth2": "^2.11.0",
     "node-fetch": "^3.2.6",
