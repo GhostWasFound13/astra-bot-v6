@@ -19,7 +19,7 @@
     "express": "^4.18.2",
     "ffmpeg-static": "^5.1.0",
     "chalk": "^4.1.2",
-    "opusscript": "^0.0.8",
+    "opusscript": "^0.1.1",
     "discord-html-transcripts": "^3.1.4",
      "@akarui/aoi.panel": "github:AkaruiDevelopment/panel",
     "@types/node": "^18.0.6",
